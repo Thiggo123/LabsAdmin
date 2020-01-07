@@ -1,0 +1,74 @@
+﻿@model Labs.Models.Computers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Computers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlacaMae)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlacaMae)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Memoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Memoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarcaHD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarcaHD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VelocidadeCPU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VelocidadeCPU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Labs.Models.Computers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Computadores</h2>
+<br>
+<p>
+    @Html.ActionLink("Cadastrar Nova Máquina", "Create")
+</p>
+
+<br>
+
+
+
+
+
+@foreach (var item in Model)
+{
+<div class="col-md-4 mt-3 ">
+    <div class="card bg-light">
+        <div class="card-body border rounded border-primary">
+            <div class="d-flex">
+                <div class="d-flex">
+                    <label class="fonteSquares">Computador: </label>
+                    <label class="fonteSquares text-primary ml-2 font-weight-bold"></label>
+                </div>
+
+            </div>
+            <div class="d-flex">
+                <label class="fonteSquares">Marca: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.Marca)</label>
+            </div>
+            <div class="d-flex">
+                <label class="fonteSquares">Modelo: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.Modelo)</label>
+            </div>
+            <div class="d-flex">
+                <label class="fonteSquares">Placa-Mãe: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.PlacaMae)</label>
+            </div>
+            <div class="d-flex">
+                <label class="fonteSquares">Memória RAM: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.Memoria)</label>
+            </div>
+            <div class="d-flex">
+                <label class="fonteSquares">HD: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.HD) @Html.DisplayFor(modelItem => item.MarcaHD)</label>
+            </div>
+           
+            <div class="d-flex">
+                <label class="fonteSquares">Clock do CPU: </label>
+                <label class="fonteSquares text-primary ml-2 font-weight-bold">@Html.DisplayFor(modelItem => item.VelocidadeCPU) Gb/s</label>
+            </div>
+            
+            <div class="d-flex mt-3">
+                <a asp-action="Edit" asp-route-id="@item.ID" class="btn ml-4 btn-sm btn-warning  font-weight-bold"  href="@Url.Action("Edit","Computers", new {id = item.ID })"  >Editar</a>
+                <a class="btn btn-sm btn-danger ml-4 text-white font-weight-bold" href="@Url.Action("Delete","Computers", new {id = item.ID })" > Excluir</a>
+              
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+}
+
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlacaMae)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Memoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MarcaHD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VelocidadeCPU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlacaMae)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Memoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarcaHD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VelocidadeCPU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>*@

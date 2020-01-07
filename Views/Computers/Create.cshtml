@@ -1,0 +1,269 @@
+﻿@model Labs.Models.Computers
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Cadastro</h2>
+
+
+<script language="JavaScript">
+    function enviardados() {
+
+        if (document.dados.marca.value == "") {
+            alert("Preencha campo MARCA corretamente!");
+            document.dados.marca.focus();
+            return false;
+        }
+
+
+        if (document.dados.modelo.value == "") {
+            alert("Preencha campo MODELO corretamente!");
+            document.dados.modelo.focus();
+            return false;
+        }
+
+        if (document.dados.placamae.value == "") {
+            alert("Preencha o campo Placa-Mãe!");
+            document.dados.placamae.focus();
+            return false;
+        }
+
+        if (document.dados.memoria.value == "") {
+            alert("Preencha o campo Memoria!");
+            document.dados.memoria.focus();
+            return false;
+        }
+
+        if (document.dados.hd.value == "") {
+            alert("Preencha o campo HD!");
+            document.dados.hd.focus();
+            return false;
+        }
+
+        if (document.dados.marcahd.value == "") {
+            alert("Preencha o campo MarcaHD!");
+            document.dados.marcahd.focus();
+            return false;
+        }
+
+        if (document.dados.processador.value == "") {
+            alert("Preencha o campo Clock do CPU!");
+            document.dados.processador.focus();
+            return false;
+        }
+
+
+
+        return true;
+    }
+
+</script>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Cadastro de Computadores</title>
+
+
+</head>
+<body>
+
+    <form action="Create" method="post" name="dados"
+          onSubmit="return enviardados();">
+        <table width="588" border="0" align="center">
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">Marca:</font>
+                </td>
+                <td width="460">
+                    <input name="marca" type="text" class="formbutton"
+                           id="marca" size="52" maxlength="150">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <font size="2" face="Verdana, Arial, Helvetica,
+      sans-serif">Modelo:</font>
+                </td>
+                <td>
+                    <font size="2">
+                        <input name="modelo" type="text" id="modelo" size="52"
+                               maxlength="150" class="formbutton">
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">Placa-mãe:</font>
+                </td>
+                <td width="460">
+                    <input name="placamae" type="text" class="formbutton"
+                           id="placamae" size="52" maxlength="150">
+                </td>
+            </tr>
+
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">Memoria:</font>
+                </td>
+                <td width="460">
+                    <input name="memoria" type="text" class="formbutton"
+                           id="memoria" size="52" maxlength="150">
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">HD:</font>
+                </td>
+                <td width="460">
+                    <input name="hd" type="text" class="formbutton"
+                           id="hd" size="52" maxlength="150">
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">MarcaHd:</font>
+                </td>
+                <td width="460">
+                    <input name="marcahd" type="text" class="formbutton"
+                           id="marcahd" size="52" maxlength="150">
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="2" face="Verdana,
+      Arial, Helvetica, sans-serif">Clock do CPU:</font>
+                </td>
+                <td width="460">
+                    <input name="processador" type="text" class="formbutton"
+                           id="processador" size="52" maxlength="150">
+                </td>
+            </tr>
+            <tr>
+                <td height="85">
+                    <p>
+                        <strong>
+                            <font face="Verdana,
+      Arial, Helvetica, sans-serif">
+                                <font size="1">
+                                </font>
+                            </font>
+                        </strong>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td height="22"></td>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Cadastrar" class="btn btn-default" />
+                        </div>
+                    </div>
+
+                    
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <!DOCTYPE html>
+        <form action="pagina de ação" method="post" name="dados"
+              onSubmit="return enviardados();">
+
+            <div class="form-horizontal">
+                <h4>Computadores</h4>
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div id="marca" class="form-group">
+                    @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Marca, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="modelo" class="form-group">
+                    @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Modelo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="placamae" class="form-group">
+                    @Html.LabelFor(model => model.PlacaMae, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PlacaMae, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PlacaMae, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="memoriaram" class="form-group">
+                    @Html.LabelFor(model => model.Memoria, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Memoria, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Memoria, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="hd" class="form-group">
+                    @Html.LabelFor(model => model.HD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.HD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="marcahd" class="form-group">
+                    @Html.LabelFor(model => model.MarcaHD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MarcaHD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MarcaHD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div id="processador" class="form-group">
+                    @Html.LabelFor(model => model.VelocidadeCPU, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VelocidadeCPU, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.VelocidadeCPU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Cadastrar" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    }*@
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
